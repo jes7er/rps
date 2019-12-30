@@ -12,21 +12,21 @@ function playRound(playerSelection, computerSelection) {
     //const para = document.querySelector('p');
     const para = document.getElementById('results');
     if (playerSelection === computerSelection) {
-          para.innerText = 'Tie!';
+          para.innerHTML = '<p>Tie!</p>';
       } else if ((playerSelection === "rock") && (computerSelection === "scissors")) {
-          para.innerText = 'Human wins!';
+          para.innerHTML = '<p>Human wins!</p>';
       } else if ((playerSelection === "rock") && (computerSelection === "paper")) {
-          para.innerText = 'Computer wins!';
+          para.innerHTML = '<p>Computer wins!</p>';
       } else if ((playerSelection === "paper") && (computerSelection === "scissors")) {
-          para.innerText = 'Computer wins!';
+          para.innerHTML = '<p>Computer wins!</p>';
       } else if ((playerSelection === "paper") && (computerSelection === "rock")) {
-          para.innerText = 'Player wins!';
+          para.innerHTML = '<p>Player wins!</p>';
       } else if ((playerSelection === "scissors") && (computerSelection === "paper")) {
-          para.innerText = 'Player wins!';
+          para.innerHTML = '<p>Player wins!</p>';
       } else if ((playerSelection === "scissors") && (computerSelection === "rock")) {
-          para.innerText = 'Computer wins!';
+          para.innerHTML = '<p>Computer wins!</p>';
       } else {
-          para.innerText = 'You did not enter a valid choice!';
+          para.innerHTML = '<p>You did not enter a valid choice!</p>';
       }
 }
 
