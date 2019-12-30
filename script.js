@@ -16,32 +16,40 @@ function playRound(playerSelection, computerSelection) {
     const para = document.getElementById('results');
     if (playerSelection === computerSelection) {
           para.innerHTML = '<p>Tie!</p>';
+          break;
       } else if ((playerSelection === "rock") && (computerSelection === "scissors")) {
           para.innerHTML = '<p>Human wins!<br>(computer chose scissors)</p>';
           ++roundCount;
           ++humanScore;
+          break;
       } else if ((playerSelection === "rock") && (computerSelection === "paper")) {
           para.innerHTML = '<p>Computer wins!<br>(computer chose paper)</p>';
           ++roundCount;
           ++compScore;
+          break;
       } else if ((playerSelection === "paper") && (computerSelection === "scissors")) {
           para.innerHTML = '<p>Computer wins!<br>(computer chose scissors)</p>';
           ++compScore;
           ++roundCount;
+          break;
       } else if ((playerSelection === "paper") && (computerSelection === "rock")) {
           para.innerHTML = '<p>Player wins!<br>(computer chose rock)</p>';
           ++humanScore;
           ++roundCount;
+          break;
       } else if ((playerSelection === "scissors") && (computerSelection === "paper")) {
           para.innerHTML = '<p>Player wins!<br>(computer chose paper)</p>';
           ++humanScore;
           ++roundCount;
+          break;
       } else if ((playerSelection === "scissors") && (computerSelection === "rock")) {
           para.innerHTML = '<p>Computer wins!<br>(computer chose rock)</p>';
           ++compScore;
           ++roundCount;
+          break;
       } else {
           para.innerHTML = '<p>You did not enter a valid choice!</p>';
+          break;
       }
 }
 
