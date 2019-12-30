@@ -16,7 +16,6 @@ function playRound(playerSelection, computerSelection) {
     const para = document.getElementById('results');
     if (playerSelection === computerSelection) {
           para.innerHTML = '<p>Tie!</p>';
-          playRound(playerSelection, computerSelection);
       } else if ((playerSelection === "rock") && (computerSelection === "scissors")) {
           para.innerHTML = '<p>Human wins!<br>(computer chose scissors)</p>';
           ++roundCount;
@@ -43,7 +42,6 @@ function playRound(playerSelection, computerSelection) {
           ++roundCount;
       } else {
           para.innerHTML = '<p>You did not enter a valid choice!</p>';
-          playRound(playerSelection, computerSelection);
       }
 }
 
