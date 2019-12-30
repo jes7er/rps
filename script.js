@@ -11,9 +11,7 @@ function humanPlay() {
     return humanSelection;
 }
 
-function playRound(playerSelection, computerSelection) {
-    //const para = document.querySelector('p');
-    const para = document.getElementById('results');
+function playRound(playerSelection, computerSelection,para,compScore,humanScore) {
     if (playerSelection === computerSelection) {
           para.innerHTML = '<p>Tie!</p>';
       } else if ((playerSelection === "rock") && (computerSelection === "scissors")) {
@@ -42,11 +40,11 @@ function playRound(playerSelection, computerSelection) {
 
 let playerSelection = humanPlay();
 let computerSelection = computerPlay();
-
+const para = document.getElementById('results');
 var compScore = 0, humanScore = 0;
 
 while ((compScore<5) && (humanScore<5)) {
-    playRound(playerSelection, computerSelection);
+    playRound(playerSelection, computerSelection, para,compScore,humanScore);
 }
 
 }
