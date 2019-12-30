@@ -1,4 +1,4 @@
-
+function main() {
 //const humanScore = 0;
 //const compScore = 0;
 
@@ -37,8 +37,6 @@ const computerSelection = computerPlay();
 
 console.log(playRound(playerSelection, computerSelection));
 
+}
 
-
-rock > scissors
-scissors > paper 
-paper > rock
+window.onload = main;
