@@ -12,17 +12,17 @@ function playRound(playerSelection, computerSelection) {
     //code here
     if (playerSelection === computerSelection) {
           para.textContent = 'Tie!';
-      } else if (playerSelection === "rock") && (computerSelection === "scissors") {
+      } else if ((playerSelection === "rock") && (computerSelection === "scissors")) {
           para.textContent = 'Human wins!';
-      } else if (playerSelection === "rock") && (computerSelection === "paper") {
+      } else if ((playerSelection === "rock") && (computerSelection === "paper")) {
           para.textContent = 'Computer wins!';
-      } else if (playerSelection === "paper") && (computerSelection === "scissors") {
+      } else if ((playerSelection === "paper") && (computerSelection === "scissors")) {
           para.textContent = 'Computer wins!';
-      } else if (playerSelection === "paper") && (computerSelection === "rock") {
+      } else if ((playerSelection === "paper") && (computerSelection === "rock"))) {
           para.textContent = 'Player wins!';
-      } else if (playerSelection === "scissors") && (computerSelection === "paper") {
+      } else if ((playerSelection === "scissors") && (computerSelection === "paper")) {
           para.textContent = 'Player wins!';
-      } else if (playerSelection === "scissors") && (computerSelection === "rock") {
+      } else if ((playerSelection === "scissors") && (computerSelection === "rock")) {
           para.textContent = 'Computer wins!';
       } else {
           para.textContent = 'You did not enter a valid choice!';
