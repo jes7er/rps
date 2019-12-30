@@ -9,23 +9,24 @@ function computerPlay() {
 }
 
 function playRound(playerSelection, computerSelection) {
-    const para = document.querySelector('p');
+    //const para = document.querySelector('p');
+    const para = document.getElementById('results');
     if (playerSelection === computerSelection) {
-          para.textContent = 'Tie!';
+          para.innerText = 'Tie!';
       } else if ((playerSelection === "rock") && (computerSelection === "scissors")) {
-          para.textContent = 'Human wins!';
+          para.innerText = 'Human wins!';
       } else if ((playerSelection === "rock") && (computerSelection === "paper")) {
-          para.textContent = 'Computer wins!';
+          para.innerText = 'Computer wins!';
       } else if ((playerSelection === "paper") && (computerSelection === "scissors")) {
-          para.textContent = 'Computer wins!';
+          para.innerText = 'Computer wins!';
       } else if ((playerSelection === "paper") && (computerSelection === "rock")) {
-          para.textContent = 'Player wins!';
+          para.innerText = 'Player wins!';
       } else if ((playerSelection === "scissors") && (computerSelection === "paper")) {
-          para.textContent = 'Player wins!';
+          para.innerText = 'Player wins!';
       } else if ((playerSelection === "scissors") && (computerSelection === "rock")) {
-          para.textContent = 'Computer wins!';
+          para.innerText = 'Computer wins!';
       } else {
-          para.textContent = 'You did not enter a valid choice!';
+          para.innerText = 'You did not enter a valid choice!';
       }
 }
 
