@@ -52,7 +52,7 @@ let computerSelection = computerPlay();
 
 var compScore = 0, humanScore = 0;
 
-for (var roundCount = 0; ((compScore<5) && (humanScore<5); roundCount++ )) {
+while ((compScore<5) && (humanScore<5)) {
     playRound(playerSelection, computerSelection);
 }
 
