@@ -1,4 +1,4 @@
-const para = document.querySelector('p');
+
 //const humanScore = 0;
 //const compScore = 0;
 
@@ -9,6 +9,7 @@ function computerPlay() {
 }
 
 function playRound(playerSelection, computerSelection) {
+    const para = document.querySelector('p');
     if (playerSelection === computerSelection) {
           para.textContent = 'Tie!';
       } else if ((playerSelection === "rock") && (computerSelection === "scissors")) {
