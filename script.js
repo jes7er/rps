@@ -9,7 +9,6 @@ function computerPlay() {
 }
 
 function playRound(playerSelection, computerSelection) {
-    //code here
     if (playerSelection === computerSelection) {
           para.textContent = 'Tie!';
       } else if ((playerSelection === "rock") && (computerSelection === "scissors")) {
@@ -29,7 +28,7 @@ function playRound(playerSelection, computerSelection) {
       }
 }
 
-let playerSelection.toLowerCase() = prompt("Enter rock, paper or scissors");
+let playerSelection = prompt("Enter rock, paper or scissors");
 const computerSelection = computerPlay();
 
 
