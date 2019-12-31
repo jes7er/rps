@@ -1,3 +1,4 @@
+
 const container = document.querySelector('#container');
 const content = document.createElement('div');
 
@@ -14,7 +15,7 @@ function humanPlay() {
     return humanSelection;
 }
 
-function playRound(playerSelection, computerSelection, humanScore, compScore) {
+function playRound(playerSelection, computerSelection) {
     if (playerSelection === computerSelection) {
           content.textContent = 'Tie!';
           container.appendChild(content);
@@ -52,6 +53,7 @@ function playRound(playerSelection, computerSelection, humanScore, compScore) {
 var compScore = 0;
 var humanScore = 0;
 
+
 while ((compScore < 5) && (humanScore < 5)) {
-    playRound(humanPlay(), computerPlay(), humanScore, compScore);
-}
+    playRound(humanPlay(), computerPlay());
+} 
