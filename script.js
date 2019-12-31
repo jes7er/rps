@@ -46,7 +46,7 @@ function playRound(playerSelection, computerSelection, humanScore, compScore) {
           content.textContent = 'You did not enter a valid choice!';
           container.appendChild(content);
       }
-    //return humanScore,compScore;
+    return humanScore,compScore;
 }
 
 var playerSelection = humanPlay();
