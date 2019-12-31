@@ -1,4 +1,7 @@
-function main() {
+const main = document.querySelector('#main');
+const content = document.createElement('div');
+
+content.classList.add('results');
 
 function computerPlay() {
     var options = ["rock","paper","scissors"];
@@ -11,42 +14,47 @@ function humanPlay() {
     return humanSelection;
 }
 
-function playRound(playerSelection, computerSelection,para,compScore,humanScore) {
+function playRound(playerSelection, computerSelection) {
     if (playerSelection === computerSelection) {
-          para.innerHTML = '<p>Tie!</p>';
+          content.textContent = 'Tie!';
+          main.appendChild(content);
+          
       } else if ((playerSelection === "rock") && (computerSelection === "scissors")) {
-          para.innerHTML = '<p>Human wins!<br>(computer chose scissors)</p>';
+          content.textContent = 'You win! - computer chose scissors';
+          main.appendChild(content);
           ++humanScore;
       } else if ((playerSelection === "rock") && (computerSelection === "paper")) {
-          para.innerHTML = '<p>Computer wins!<br>(computer chose paper)</p>';
+          content.textContent = 'Computer wins! - computer chose paper';
+          main.appendChild(content);
           ++compScore;
       } else if ((playerSelection === "paper") && (computerSelection === "scissors")) {
-          para.innerHTML = '<p>Computer wins!<br>(computer chose scissors)</p>';
+          content.textContent = 'Computer wins! - computer chose scissors';
+          main.appendChild(content);
           ++compScore;
       } else if ((playerSelection === "paper") && (computerSelection === "rock")) {
-          para.innerHTML = '<p>Player wins!<br>(computer chose rock)</p>';
+          content.textContent = 'You win! - computer chose rock';
+          main.appendChild(content);
           ++humanScore;
       } else if ((playerSelection === "scissors") && (computerSelection === "paper")) {
-          para.innerHTML = '<p>Player wins!<br>(computer chose paper)</p>';
+          content.textContent = 'You win! - computer chose paper';
+          main.appendChild(content);
           ++humanScore;
       } else if ((playerSelection === "scissors") && (computerSelection === "rock")) {
-          para.innerHTML = '<p>Computer wins!<br>(computer chose rock)</p>';
+          content.textContent = 'Computer wins! - computer chose rock';
+          main.appendChild(content);
           ++compScore;
       } else {
-          para.innerHTML = '<p>You did not enter a valid choice!</p>';
+          content.textContent = 'You did not enter a valid choice!';
+          main.appendChild(content);
       }
     return humanScore,compScore;
 }
 
-let playerSelection = humanPlay();
-let computerSelection = computerPlay();
-const para = document.getElementById('results');
+var playerSelection = humanPlay();
+var computerSelection = computerPlay();
+
 var compScore = 0, humanScore = 0;
 
 while ((compScore<5) && (humanScore<5)) {
-    playRound(playerSelection, computerSelection, para,compScore,humanScore);
+    playRound(playerSelection, computerSelection);
 }
-
-}
-
-window.onload = main;
