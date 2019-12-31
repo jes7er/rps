@@ -14,11 +14,10 @@ function humanPlay() {
     return humanSelection;
 }
 
-function playRound(playerSelection, computerSelection) {
+function playRound(playerSelection, computerSelection, humanScore, compScore) {
     if (playerSelection === computerSelection) {
           content.textContent = 'Tie!';
           container.appendChild(content);
-          
       } else if ((playerSelection === "rock") && (computerSelection === "scissors")) {
           content.textContent = 'You win! - computer chose scissors';
           container.appendChild(content);
@@ -55,6 +54,6 @@ var computerSelection = computerPlay();
 
 var compScore = 0, humanScore = 0;
 
-while ((compScore<5) && (humanScore<5)) {
-    playRound(playerSelection, computerSelection);
+while ((compScore < 5) && (humanScore < 5)) {
+    playRound(playerSelection, computerSelection, humanScore, compScore);
 }
