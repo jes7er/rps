@@ -1,4 +1,4 @@
-const main = document.querySelector('#main');
+const container = document.querySelector('#main');
 const content = document.createElement('div');
 
 content.classList.add('results');
@@ -17,37 +17,37 @@ function humanPlay() {
 function playRound(playerSelection, computerSelection) {
     if (playerSelection === computerSelection) {
           content.textContent = 'Tie!';
-          main.appendChild(content);
+          container.appendChild(content);
           
       } else if ((playerSelection === "rock") && (computerSelection === "scissors")) {
           content.textContent = 'You win! - computer chose scissors';
-          main.appendChild(content);
+          container.appendChild(content);
           ++humanScore;
       } else if ((playerSelection === "rock") && (computerSelection === "paper")) {
           content.textContent = 'Computer wins! - computer chose paper';
-          main.appendChild(content);
+          container.appendChild(content);
           ++compScore;
       } else if ((playerSelection === "paper") && (computerSelection === "scissors")) {
           content.textContent = 'Computer wins! - computer chose scissors';
-          main.appendChild(content);
+          container.appendChild(content);
           ++compScore;
       } else if ((playerSelection === "paper") && (computerSelection === "rock")) {
           content.textContent = 'You win! - computer chose rock';
-          main.appendChild(content);
+          container.appendChild(content);
           ++humanScore;
       } else if ((playerSelection === "scissors") && (computerSelection === "paper")) {
           content.textContent = 'You win! - computer chose paper';
-          main.appendChild(content);
+          container.appendChild(content);
           ++humanScore;
       } else if ((playerSelection === "scissors") && (computerSelection === "rock")) {
           content.textContent = 'Computer wins! - computer chose rock';
-          main.appendChild(content);
+          container.appendChild(content);
           ++compScore;
       } else {
           content.textContent = 'You did not enter a valid choice!';
-          main.appendChild(content);
+          container.appendChild(content);
       }
-    return humanScore,compScore;
+    //return humanScore,compScore;
 }
 
 var playerSelection = humanPlay();
