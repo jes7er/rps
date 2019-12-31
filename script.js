@@ -56,5 +56,5 @@ var humanScore = 0;
 
 while ((compScore < 5) && (humanScore < 5)) {
     var result = playRound(humanPlay(), computerPlay());
-    container.appendChild(result[0] + 'Your score: '+result[1]+', Computer score: '+result[2]);
+    container.appendChild(result[0]);
 } 
