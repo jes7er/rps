@@ -49,12 +49,9 @@ function playRound(playerSelection, computerSelection, humanScore, compScore) {
     return humanScore,compScore;
 }
 
-var playerSelection = humanPlay();
-var computerSelection = computerPlay();
-
 var compScore = 0;
 var humanScore = 0;
 
 while ((compScore < 5) && (humanScore < 5)) {
-    playRound(playerSelection, computerSelection, humanScore, compScore);
+    playRound(humanPlay(), computerPlay(), humanScore, compScore);
 }
