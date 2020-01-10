@@ -1,9 +1,3 @@
-
-const container = document.querySelector('#container');
-const content = document.createElement('div');
-
-content.classList.add('results');
-
 function computerPlay() {
     var options = ["rock","paper","scissors"];
     const compSelect = Math.round(Math.random()*2);
@@ -53,8 +47,14 @@ function playRound(playerSelection, computerSelection) {
 var compScore = 0;
 var humanScore = 0;
 
+const container = document.querySelector('#container');
 
 while ((compScore < 5) && (humanScore < 5)) {
     var result = playRound(humanPlay(), computerPlay());
-    container.appendChild(result[0]);
-} 
+    var newDiv = document.createElement('div');
+    newDiv.className = 'result';
+    var newDivText = document.createTextNode(result[0]);
+    newDiv.appendChild(newDivText);
+    container.insertAdjacentHTML("beforeend",newDiv);
+
+}
