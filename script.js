@@ -1,60 +1,71 @@
 function computerPlay() {
     var options = ["rock","paper","scissors"];
-    const compSelect = Math.round(Math.random()*2);
+    min = Math.ceil(0);
+    max = Math.floor(2);
+    var compSelect = Math.floor(Math.random() * (max-min+1)) + min;
     return options[compSelect];
 }
 
-function humanPlay() {
-    var humanSelection = prompt("Enter 'rock', 'paper' or 'scissors'").toLowerCase();
-    return humanSelection;
-}
-
 function playRound(playerSelection, computerSelection) {
+    var winner = '';
     if (playerSelection === computerSelection) {
-          content.textContent = 'Tie!';
-          //container.appendChild(content);
-      } else if ((playerSelection === "rock") && (computerSelection === "scissors")) {
-          content.textContent = 'You win! - computer chose scissors';
-          //container.appendChild(content);
-          humanScore += 1;
-      } else if ((playerSelection === "rock") && (computerSelection === "paper")) {
-          content.textContent = 'Computer wins! - computer chose paper';
-          //container.appendChild(content);
-          compScore += 1;
-      } else if ((playerSelection === "paper") && (computerSelection === "scissors")) {
-          content.textContent = 'Computer wins! - computer chose scissors';
-          //container.appendChild(content);
-          compScore += 1;
-      } else if ((playerSelection === "paper") && (computerSelection === "rock")) {
-          content.textContent = 'You win! - computer chose rock';
-          //container.appendChild(content);
-          humanScore += 1;
-      } else if ((playerSelection === "scissors") && (computerSelection === "paper")) {
-          content.textContent = 'You win! - computer chose paper';
-          //container.appendChild(content);
-          humanScore += 1;
-      } else if ((playerSelection === "scissors") && (computerSelection === "rock")) {
-          content.textContent = 'Computer wins! - computer chose rock';
-          //container.appendChild(content);
-          compScore += 1;
-      } else {
-          content.textContent = 'You did not enter a valid choice!';
-          //container.appendChild(content);
-      }
-    return [content, humanScore, compScore];
+        textResult = 'Tie!';
+    } else if ((playerSelection === "rock") && (computerSelection === "scissors")) {
+        textResult = 'You win! - computer chose scissors';
+        winner = 'player';
+    } else if ((playerSelection === "rock") && (computerSelection === "paper")) {
+        textResult = 'You Lose! - computer chose paper';
+        winner = 'computer';
+    } else if ((playerSelection === "paper") && (computerSelection === "scissors")) {
+        textResult = 'You Lose! - computer chose scissors';
+        winner = 'computer';
+    } else if ((playerSelection === "paper") && (computerSelection === "rock")) {
+        textResult = 'You win! - computer chose rock';
+        winner = 'player';
+    } else if ((playerSelection === "scissors") && (computerSelection === "paper")) {
+        textResult = 'You win! - computer chose paper';
+        winner = 'player';
+    } else if ((playerSelection === "scissors") && (computerSelection === "rock")) {
+        textResult = 'You Lose! - computer chose rock';
+        winner = 'computer';
+    }
+    document.getElementById('roundResults').innerText = textResult;
+    return winner;
 }
 
-var compScore = 0;
-var humanScore = 0;
-
-const container = document.querySelector('#container');
-
-while ((compScore < 5) && (humanScore < 5)) {
-    var result = playRound(humanPlay(), computerPlay());
-    var newDiv = document.createElement('div');
-    newDiv.className = 'result';
-    var newDivText = document.createTextNode(result[0]);
-    newDiv.appendChild(newDivText);
-    container.insertAdjacentHTML("beforeend",newDiv);
-
+function resetGame(){
+    // reset global variables: let humanScore = 0, compScore = 0, roundCount = 0;
+    // remove button click event: const buttons = document.querySelectorAll('button');
+    //buttons.forEach((button) => {
+    //    button.removeEventListener('click', playGame)});
 }
+
+let humanScore = 0, compScore = 0, roundCount = 0;
+
+
+function game() {
+    const buttons = document.querySelectorAll('button');
+    buttons.forEach((button) => {
+        button.addEventListener('click', (e) => {
+            humanSelection = e.target.id;
+            var results = playRound(humanSelection, computerPlay());
+            if (results === 'player') {
+                humanScore++;
+                roundCount++;
+            } else if (results === 'computer') {
+                compScore++;
+                roundCount++;
+            }
+            document.getElementById('player').innerText = humanScore;
+            document.getElementById('computer').innerText = compScore;
+            if (compScore === 5) {
+                document.getElementById('roundResults').innerText = 'Computer wins!';
+                resetGame();
+            } else if (humanScore === 5) {
+                document.getElementById('roundResults').innerText = 'Player wins!';
+                resetGame();
+            }
+        });
+    });
+}
+game();

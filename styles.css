@@ -1,35 +1,88 @@
-html, body, div {
+html {
     /* Height and width fallback for older browsers. */
     background-color: orangered;
-
-    height: 100%;
-    width: 100%;
-
     /* Set the height to match that of the viewport. */
     height: 100vh;
-
     /* Set the width to match that of the viewport. */
     width: 100vw;
-
     /* Remove any browser-default margins. */
     margin: 0;
 }
 
 h1 {
-    margin-left:auto;
-    margin-right:auto;
+    text-align: center;
+    color:white;
 }
 
-.results {
-    height: 100px;
-    padding: 20px;
-    width:40%;
-    margin-left:auto;
-    margin-right:auto;
+#buttons {
+    justify-content: center;
+    display: flex;
+}
+
+#playerDisplay, #computerDisplay {
+    color:whitesmoke;
+    text-align:center;
+    font-size:20pt;
+}
+
+#results {
     border-radius: 25px;
     border-style: dashed;
     border-color: white;
-    font-size: 45px;
+    font-size: 32px;
     color: whitesmoke;
     text-align: center;
+}
+
+.rps {
+    display: inline-block;
+    width: 150px;
+    padding: 15px 25px;
+    margin: 0px 15px;
+    font-size: 24px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    outline: none;
+    color: #fff;
+    background-color:lightblue;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 9px #999;
+}
+  
+.rps:hover {background-color:teal}
+  
+.rps:active {
+    background-color: #3e8e41;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+}
+
+.column {
+    float: left;
+    padding: 10px;
+    height: 300px;
+}
+  
+.left, .right {
+    width: 30%;
+}
+  
+.main {
+    width:60%;
+    margin-left:auto;
+    margin-right: auto;
+    padding: 15px 15px 15px 15px;
+}
+
+.middle {
+    width: 30%;
+}
+  
+  /* Clear floats after the columns */
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
 }
