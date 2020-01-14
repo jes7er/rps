@@ -51,6 +51,10 @@ var playerScore = 0, compScore = 0, roundCount = 0;
 const buttons = document.querySelectorAll('button');
 buttons.forEach(button => button.addEventListener('click', game));
 
+document.getElementById('player').innerText = playerScore;
+document.getElementById('computer').innerText = compScore;
+document.getElementById('roundResults').innerText = 'First to 5 wins, ties don\'t count!  Choose your weapon above.'
+
 function createReplay(){
     const buttons = document.querySelectorAll('button');
     buttons.forEach((button) => button.removeEventListener('click', game));
