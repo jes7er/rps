@@ -55,7 +55,10 @@ h1 {
     box-shadow: 0 9px #999;
 }
   
-.rps:hover {background-color:teal}
+.rps:hover {
+    background-color:teal;
+    color: yellow;
+}
   
 .rps:active {
     background-color: blue;
