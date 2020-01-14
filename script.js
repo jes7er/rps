@@ -34,38 +34,55 @@ function playRound(playerSelection, computerSelection) {
 }
 
 function resetGame(){
-    // reset global variables: let humanScore = 0, compScore = 0, roundCount = 0;
-    // remove button click event: const buttons = document.querySelectorAll('button');
-    //buttons.forEach((button) => {
-    //    button.removeEventListener('click', playGame)});
+    var remove = document.getElementById('restart');
+    remove.parentNode.removeChild(remove);
+    // remove rematch button, reset global variables and re-add button functionality
+    playerScore = 0, compScore = 0, roundCount = 0;
+    const buttons = document.querySelectorAll('button');
+    buttons.forEach(button => button.addEventListener('click', game));
+    document.getElementById('player').innerText = playerScore;
+    document.getElementById('computer').innerText = compScore;
+    document.getElementById('roundResults').innerText = 'New Game!'
+    return playerScore, compScore, roundCount;
 }
 
-let humanScore = 0, compScore = 0, roundCount = 0;
+var playerScore = 0, compScore = 0, roundCount = 0;
 
+const buttons = document.querySelectorAll('button');
+buttons.forEach(button => button.addEventListener('click', game));
 
-function game() {
+function createReplay(){
     const buttons = document.querySelectorAll('button');
-    buttons.forEach((button) => {
-        button.addEventListener('click', (e) => {
-            humanSelection = e.target.id;
-            var results = playRound(humanSelection, computerPlay());
+    buttons.forEach((button) => button.removeEventListener('click', game));
+    var button = document.createElement("button");
+    button.innerHTML = "Re-Match";
+    button.setAttribute('id','restart');
+    button.setAttribute('class','rps');
+    button.style.width = '200px';
+    button.addEventListener('click', resetGame);
+    var p = document.getElementById('rematch');
+    //console.log(location);
+    p.appendChild(button);
+    
+}
+
+function game(e) {
+            playerSelection = e.target.id;
+            var results = playRound(playerSelection, computerPlay());
             if (results === 'player') {
-                humanScore++;
+                playerScore++;
                 roundCount++;
             } else if (results === 'computer') {
                 compScore++;
                 roundCount++;
             }
-            document.getElementById('player').innerText = humanScore;
+            document.getElementById('player').innerText = playerScore;
             document.getElementById('computer').innerText = compScore;
             if (compScore === 5) {
                 document.getElementById('roundResults').innerText = 'Computer wins!';
-                resetGame();
-            } else if (humanScore === 5) {
+                createReplay();
+            } else if (playerScore === 5) {
                 document.getElementById('roundResults').innerText = 'Player wins!';
-                resetGame();
+                createReplay();
             }
-        });
-    });
 }
-game();

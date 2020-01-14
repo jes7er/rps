@@ -25,6 +25,10 @@ h1 {
     font-size:20pt;
 }
 
+#player, #computer {
+    font-size: 48pt;
+}
+
 #results {
     border-radius: 25px;
     border-style: dashed;
@@ -44,7 +48,7 @@ h1 {
     text-align: center;
     text-decoration: none;
     outline: none;
-    color: #fff;
+    color: orangered;
     background-color:lightblue;
     border: none;
     border-radius: 15px;
@@ -54,7 +58,7 @@ h1 {
 .rps:hover {background-color:teal}
   
 .rps:active {
-    background-color: #3e8e41;
+    background-color: blue;
     box-shadow: 0 5px #666;
     transform: translateY(4px);
 }
