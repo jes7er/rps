@@ -37,16 +37,16 @@ function resetGame(){
     var remove = document.getElementById('restart');
     remove.parentNode.removeChild(remove);
     // remove rematch button, reset global variables and re-add button functionality
-    playerScore = 0, compScore = 0, roundCount = 0;
+    playerScore = 0, compScore = 0;
     const buttons = document.querySelectorAll('button');
     buttons.forEach(button => button.addEventListener('click', game));
     document.getElementById('player').innerText = playerScore;
     document.getElementById('computer').innerText = compScore;
     document.getElementById('roundResults').innerText = 'New Game!'
-    return playerScore, compScore, roundCount;
+    return playerScore, compScore;
 }
 
-var playerScore = 0, compScore = 0, roundCount = 0;
+var playerScore = 0, compScore = 0;
 
 const buttons = document.querySelectorAll('button');
 buttons.forEach(button => button.addEventListener('click', game));
@@ -66,8 +66,7 @@ function createReplay(){
     button.addEventListener('click', resetGame);
     var p = document.getElementById('rematch');
     //console.log(location);
-    p.appendChild(button);
-    
+    p.appendChild(button); 
 }
 
 function game(e) {
@@ -75,10 +74,8 @@ function game(e) {
             var results = playRound(playerSelection, computerPlay());
             if (results === 'player') {
                 playerScore++;
-                roundCount++;
             } else if (results === 'computer') {
                 compScore++;
-                roundCount++;
             }
             document.getElementById('player').innerText = playerScore;
             document.getElementById('computer').innerText = compScore;
