@@ -1,4 +1,4 @@
-# Project Title
+# Rock, Paper, Scissors Game
 
 Super simple Rock, paper, scissors game. Plain vanilla JS + HTML + CSS
 
